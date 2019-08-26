@@ -1,7 +1,12 @@
 defmodule Mix.Tasks.CheckModuleAttrs do
   use Mix.Task
 
+  @moduledoc """
+  Provided mix tasks for package.
+  """
+
   @shortdoc "Check project for wrongly added module attributes from config/releases.exs."
+  @doc "This function which will check for module attributes being set to values from `config/releases.exs`"
   def run(_) do
     file = File.read!(Path.join("config", "releases.exs"))
 

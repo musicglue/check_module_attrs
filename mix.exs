@@ -6,23 +6,32 @@ defmodule CheckModuleAttrs.MixProject do
       app: :check_module_attrs,
       version: "0.1.0",
       elixir: "~> 1.9",
-      start_permanent: Mix.env() == :prod,
-      deps: deps()
+      start_permanent: false,
+      description: description(),
+      deps: deps(),
+      package: package(),
+      name: "CheckModuleAttrs",
+      source_url: "https://github.com/musicglue/check_module_attrs"
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
-    [
-      extra_applications: [:logger]
-    ]
+    []
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
+    []
+  end
+
+  defp package() do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => "https://github.com/musicglue/check_module_attrs"}
     ]
+  end
+
+  defp description() do
+    "This library provided mix task `check_module_attrs` which will check for module attributes being set to values from `config/releases.exs`. This will fail in production and must be avoided."
   end
 end
